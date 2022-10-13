@@ -76,12 +76,12 @@
         wait_timeout: 120
         instance_tags:
           Name: "web01"
-          Project: Bharath
+          Project: Chandrika
           Owner: DevOps Team
         exact_count: 1
         count_tag:
           Name: "web01"
-          Project: Bharath
+          Project: Chandrika
           Owner: DevOps Team
         group_id: "{{ec2StackSG_out.group_id}}"
         vpc_subnet_id: "{{pubsub1id}}"
@@ -97,12 +97,12 @@
         wait_timeout: 120
         instance_tags:
           Name: "app01"
-          Project: Bharath
+          Project: Chandrika
           Owner: DevOps Team
         exact_count: 1
         count_tag:
           Name: "app01"
-          Project: Bharath
+          Project: Chandrika
           Owner: DevOps Team
         group_id: "{{ec2StackSG_out.group_id}}"
         vpc_subnet_id: "{{privsub1id}}"
@@ -118,12 +118,12 @@
         wait_timeout: 120
         instance_tags:
           Name: "mc01"
-          Project: Bharath
+          Project: Chandrika
           Owner: DevOps Team
         exact_count: 1
         count_tag:
           Name: "mc01"
-          Project: Bharath
+          Project: Chandrika
           Owner: DevOps Team
         group_id: "{{ec2StackSG_out.group_id}}"
         vpc_subnet_id: "{{privsub1id}}"
@@ -139,12 +139,12 @@
         wait_timeout: 120
         instance_tags:
           Name: "rmq01"
-          Project: Bharath
+          Project: Chandrika
           Owner: DevOps Team
         exact_count: 1
         count_tag:
           Name: "rmq01"
-          Project: Bharath
+          Project: Chandrika
           Owner: DevOps Team
         group_id: "{{ec2StackSG_out.group_id}}"
         vpc_subnet_id: "{{privsub1id}}"
@@ -160,12 +160,12 @@
         wait_timeout: 120
         instance_tags:
           Name: "db01"
-          Project: Bharath
+          Project: Chandrika
           Owner: DevOps Team
         exact_count: 1
         count_tag:
           Name: "db01"
-          Project: Bharath
+          Project: Chandrika
           Owner: DevOps Team
         group_id: "{{ec2StackSG_out.group_id}}"
         vpc_subnet_id: "{{privsub1id}}"
@@ -208,9 +208,9 @@
         dest: provision-stack/sample_key.pem
         mode: '0400'
 
-    - name: Insert/Update Inventory file provision-stack/inventory-Bharath
+    - name: Insert/Update Inventory file provision-stack/inventory-Chandrika
       blockinfile:
-        path: provision-stack/inventory-Bharath
+        path: provision-stack/inventory-Chandrika
         block: |
           web01 ansible_host={{ web01_out.tagged_instances[0].private_ip }}
           app01 ansible_host={{ app01_out.tagged_instances[0].private_ip }}

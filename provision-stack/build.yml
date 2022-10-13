@@ -17,7 +17,7 @@
     - name: Clone source code from github
       git:
         repo: 'https://github.com/devopshydclub/vprofile-project.git'
-        dest: ./Bharath-repo
+        dest: ./Chandrika-repo
         version: vp-rem
       register: git_status
 
@@ -25,7 +25,7 @@
     - name: mvn install command to build artifact
       command: "mvn install"
       args:
-        chdir: Bharath-repo
+        chdir: Chandrika-repo
       when: git_status.changed
       register: mvn_info
 
@@ -34,16 +34,16 @@
       copy:
         src: "{{item}}"
         dest: files/ROOT.war
-      with_fileglob: Bharath-repo/target/*.war
+      with_fileglob: Chandrika-repo/target/*.war
 
     - name: Copy SQL file to files directory
       copy:
-        src: Bharath-repo/src/main/resources/db_backup.sql
+        src: Chandrika-repo/src/main/resources/db_backup.sql
         dest: files/db_backup.sql
 
         #    - name: Copy artifacts to files directory
-        #command: "cp Bharath-repo/target/vprofile-v2.war files/"
+        #command: "cp Chandrika-repo/target/vprofile-v2.war files/"
 
 
         #- name: Copy SQL file to files directory
-        #command: "cp Bharath-repo/src/main/resources/db_backup.sql files/"
+        #command: "cp Chandrika-repo/src/main/resources/db_backup.sql files/"

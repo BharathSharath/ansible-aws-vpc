@@ -6,7 +6,7 @@
     - name: Import VPC variables
       include_vars: ./vpc_setup
       
-    - name: Create Bharath VPC 
+    - name: Create Chandrika VPC 
       ec2_vpc_net:
         name: "{{vpc_name}}"
         cidr_block: "{{vpcCidr}}"
@@ -29,7 +29,7 @@
         cidr: "{{PubSub1Cidr}}"
         map_public: yes
         resource_tags:
-          Name: Bharath-pubsub1
+          Name: Chandrika-pubsub1
       register: pubsub1_out
       
     - name: Create public subnet2 in Zone2
@@ -41,7 +41,7 @@
         cidr: "{{PubSub2Cidr}}"
         map_public: yes
         resource_tags:
-          Name: Bharath-pubsub2
+          Name: Chandrika-pubsub2
       register: pubsub2_out
       
     - name: Create public subnet3 in Zone3
@@ -53,7 +53,7 @@
         cidr: "{{PubSub3Cidr}}"
         map_public: yes
         resource_tags:
-          Name: Bharath-pubsub3
+          Name: Chandrika-pubsub3
       register: pubsub3_out
       
     - name: Create private subnet1 in Zone1
@@ -65,7 +65,7 @@
         cidr: "{{PrivSub1Cidr}}"
         map_public: yes
         resource_tags:
-          Name: Bharath-privsub1
+          Name: Chandrika-privsub1
       register: privsub1_out
       
     - name: Create private subnet2 in Zone2
@@ -77,7 +77,7 @@
         cidr: "{{PrivSub2Cidr}}"
         map_public: yes
         resource_tags:
-          Name: Bharath-privsub2
+          Name: Chandrika-privsub2
       register: privsub2_out
       
     - name: Create private subnet3 in Zone3
@@ -89,7 +89,7 @@
         cidr: "{{PrivSub3Cidr}}"
         map_public: yes
         resource_tags:
-          Name: Bharath-privsub3
+          Name: Chandrika-privsub3
       register: privsub3_out
       
     - name: Internet gateway setup
@@ -98,7 +98,7 @@
         region: "{{region}}"
         state: "{{state}}"
         resource_tags:
-          Name: Bharath-IGW
+          Name: Chandrika-IGW
       register: igw_out
       
     - name: set up public subnet route table
@@ -106,7 +106,7 @@
         vpc_id: "{{vpcout.vpc.id}}"
         region: "{{region}}"
         tags:
-          Name: Bharath-pubRT
+          Name: Chandrika-pubRT
         subnets:
           - "{{pubsub1_out.subnet.id}}"
           - "{{pubsub2_out.subnet.id}}"
@@ -130,7 +130,7 @@
         vpc_id: "{{vpcout.vpc.id}}"
         region: "{{region}}"
         tags:
-          Name: Bharath-privRT
+          Name: Chandrika-privRT
         subnets:
           - "{{privsub1_out.subnet.id}}"
           - "{{privsub2_out.subnet.id}}"

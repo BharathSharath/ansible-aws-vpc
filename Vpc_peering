@@ -1,0 +1,17 @@
+    - name: Create local account VPC peering Connection
+      community.aws.ec2_vpc_peer:
+        region: "{{ region }}"
+        vpc_id: "{{vpcout.vpc.id}}"
+        peer_vpc_id: "vpc-0266b1f5ac2084e8d"
+        state: present
+        tags:
+          Name: Bharath-peering
+          Project: ansible-aws-vpc
+      register: vpc_peer
+
+    - name: Accept local VPC peering request
+      community.aws.ec2_vpc_peer:
+        region: "{{ region }}"
+        peering_id: "{{ vpc_peer.peering_id }}"
+        state: accept
+      register: action_peer
